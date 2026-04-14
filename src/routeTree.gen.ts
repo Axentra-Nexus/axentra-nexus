@@ -14,6 +14,10 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as ServicesOutboundSalesRouteImport } from './routes/services.outbound-sales'
+import { Route as ServicesInboundCustomerSupportRouteImport } from './routes/services.inbound-customer-support'
+import { Route as ServicesDigitalProcessRouteImport } from './routes/services.digital-process'
+import { Route as ServicesBackOfficeRouteImport } from './routes/services.back-office'
 
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
@@ -40,11 +44,36 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   path: '/industries/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesOutboundSalesRoute = ServicesOutboundSalesRouteImport.update({
+  id: '/services/outbound-sales',
+  path: '/services/outbound-sales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesInboundCustomerSupportRoute =
+  ServicesInboundCustomerSupportRouteImport.update({
+    id: '/services/inbound-customer-support',
+    path: '/services/inbound-customer-support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesDigitalProcessRoute = ServicesDigitalProcessRouteImport.update({
+  id: '/services/digital-process',
+  path: '/services/digital-process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesBackOfficeRoute = ServicesBackOfficeRouteImport.update({
+  id: '/services/back-office',
+  path: '/services/back-office',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/services/back-office': typeof ServicesBackOfficeRoute
+  '/services/digital-process': typeof ServicesDigitalProcessRoute
+  '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/outbound-sales': typeof ServicesOutboundSalesRoute
   '/industries/': typeof IndustriesIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -52,6 +81,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/services/back-office': typeof ServicesBackOfficeRoute
+  '/services/digital-process': typeof ServicesDigitalProcessRoute
+  '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/outbound-sales': typeof ServicesOutboundSalesRoute
   '/industries': typeof IndustriesIndexRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -60,21 +93,57 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/services/back-office': typeof ServicesBackOfficeRoute
+  '/services/digital-process': typeof ServicesDigitalProcessRoute
+  '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/outbound-sales': typeof ServicesOutboundSalesRoute
   '/industries/': typeof IndustriesIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/industries/' | '/services/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services/back-office'
+    | '/services/digital-process'
+    | '/services/inbound-customer-support'
+    | '/services/outbound-sales'
+    | '/industries/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/industries' | '/services'
-  id: '__root__' | '/' | '/about' | '/contact' | '/industries/' | '/services/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services/back-office'
+    | '/services/digital-process'
+    | '/services/inbound-customer-support'
+    | '/services/outbound-sales'
+    | '/industries'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services/back-office'
+    | '/services/digital-process'
+    | '/services/inbound-customer-support'
+    | '/services/outbound-sales'
+    | '/industries/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  ServicesBackOfficeRoute: typeof ServicesBackOfficeRoute
+  ServicesDigitalProcessRoute: typeof ServicesDigitalProcessRoute
+  ServicesInboundCustomerSupportRoute: typeof ServicesInboundCustomerSupportRoute
+  ServicesOutboundSalesRoute: typeof ServicesOutboundSalesRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
@@ -116,6 +185,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/outbound-sales': {
+      id: '/services/outbound-sales'
+      path: '/services/outbound-sales'
+      fullPath: '/services/outbound-sales'
+      preLoaderRoute: typeof ServicesOutboundSalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/inbound-customer-support': {
+      id: '/services/inbound-customer-support'
+      path: '/services/inbound-customer-support'
+      fullPath: '/services/inbound-customer-support'
+      preLoaderRoute: typeof ServicesInboundCustomerSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/digital-process': {
+      id: '/services/digital-process'
+      path: '/services/digital-process'
+      fullPath: '/services/digital-process'
+      preLoaderRoute: typeof ServicesDigitalProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/back-office': {
+      id: '/services/back-office'
+      path: '/services/back-office'
+      fullPath: '/services/back-office'
+      preLoaderRoute: typeof ServicesBackOfficeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,6 +220,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  ServicesBackOfficeRoute: ServicesBackOfficeRoute,
+  ServicesDigitalProcessRoute: ServicesDigitalProcessRoute,
+  ServicesInboundCustomerSupportRoute: ServicesInboundCustomerSupportRoute,
+  ServicesOutboundSalesRoute: ServicesOutboundSalesRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
