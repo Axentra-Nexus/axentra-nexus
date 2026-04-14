@@ -30,6 +30,10 @@ export const Route = createRootRoute({
       { name: "author", content: "Axentra" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { property: "og:title", content: "Axentra — Intelligent Business Solutions" },
+      { name: "twitter:title", content: "Axentra — Intelligent Business Solutions" },
+      { property: "og:description", content: "Axentra delivers enterprise-grade BPO, customer support, and digital process management solutions. A brand by Dharitri Nexus." },
+      { name: "twitter:description", content: "Axentra delivers enterprise-grade BPO, customer support, and digital process management solutions. A brand by Dharitri Nexus." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
