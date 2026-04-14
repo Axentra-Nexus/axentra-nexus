@@ -18,6 +18,11 @@ import { Route as ServicesOutboundSalesRouteImport } from './routes/services.out
 import { Route as ServicesInboundCustomerSupportRouteImport } from './routes/services.inbound-customer-support'
 import { Route as ServicesDigitalProcessRouteImport } from './routes/services.digital-process'
 import { Route as ServicesBackOfficeRouteImport } from './routes/services.back-office'
+import { Route as IndustriesTelecomRouteImport } from './routes/industries.telecom'
+import { Route as IndustriesStartupsRouteImport } from './routes/industries.startups'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
+import { Route as IndustriesEcommerceRouteImport } from './routes/industries.ecommerce'
+import { Route as IndustriesBfsiRouteImport } from './routes/industries.bfsi'
 
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
@@ -65,11 +70,41 @@ const ServicesBackOfficeRoute = ServicesBackOfficeRouteImport.update({
   path: '/services/back-office',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesTelecomRoute = IndustriesTelecomRouteImport.update({
+  id: '/industries/telecom',
+  path: '/industries/telecom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesStartupsRoute = IndustriesStartupsRouteImport.update({
+  id: '/industries/startups',
+  path: '/industries/startups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesEcommerceRoute = IndustriesEcommerceRouteImport.update({
+  id: '/industries/ecommerce',
+  path: '/industries/ecommerce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesBfsiRoute = IndustriesBfsiRouteImport.update({
+  id: '/industries/bfsi',
+  path: '/industries/bfsi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/industries/bfsi': typeof IndustriesBfsiRoute
+  '/industries/ecommerce': typeof IndustriesEcommerceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/startups': typeof IndustriesStartupsRoute
+  '/industries/telecom': typeof IndustriesTelecomRoute
   '/services/back-office': typeof ServicesBackOfficeRoute
   '/services/digital-process': typeof ServicesDigitalProcessRoute
   '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
@@ -81,6 +116,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/industries/bfsi': typeof IndustriesBfsiRoute
+  '/industries/ecommerce': typeof IndustriesEcommerceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/startups': typeof IndustriesStartupsRoute
+  '/industries/telecom': typeof IndustriesTelecomRoute
   '/services/back-office': typeof ServicesBackOfficeRoute
   '/services/digital-process': typeof ServicesDigitalProcessRoute
   '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
@@ -93,6 +133,11 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/industries/bfsi': typeof IndustriesBfsiRoute
+  '/industries/ecommerce': typeof IndustriesEcommerceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/startups': typeof IndustriesStartupsRoute
+  '/industries/telecom': typeof IndustriesTelecomRoute
   '/services/back-office': typeof ServicesBackOfficeRoute
   '/services/digital-process': typeof ServicesDigitalProcessRoute
   '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
@@ -106,6 +151,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/industries/bfsi'
+    | '/industries/ecommerce'
+    | '/industries/healthcare'
+    | '/industries/startups'
+    | '/industries/telecom'
     | '/services/back-office'
     | '/services/digital-process'
     | '/services/inbound-customer-support'
@@ -117,6 +167,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/industries/bfsi'
+    | '/industries/ecommerce'
+    | '/industries/healthcare'
+    | '/industries/startups'
+    | '/industries/telecom'
     | '/services/back-office'
     | '/services/digital-process'
     | '/services/inbound-customer-support'
@@ -128,6 +183,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/industries/bfsi'
+    | '/industries/ecommerce'
+    | '/industries/healthcare'
+    | '/industries/startups'
+    | '/industries/telecom'
     | '/services/back-office'
     | '/services/digital-process'
     | '/services/inbound-customer-support'
@@ -140,6 +200,11 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  IndustriesBfsiRoute: typeof IndustriesBfsiRoute
+  IndustriesEcommerceRoute: typeof IndustriesEcommerceRoute
+  IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
+  IndustriesStartupsRoute: typeof IndustriesStartupsRoute
+  IndustriesTelecomRoute: typeof IndustriesTelecomRoute
   ServicesBackOfficeRoute: typeof ServicesBackOfficeRoute
   ServicesDigitalProcessRoute: typeof ServicesDigitalProcessRoute
   ServicesInboundCustomerSupportRoute: typeof ServicesInboundCustomerSupportRoute
@@ -213,6 +278,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesBackOfficeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/telecom': {
+      id: '/industries/telecom'
+      path: '/industries/telecom'
+      fullPath: '/industries/telecom'
+      preLoaderRoute: typeof IndustriesTelecomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/startups': {
+      id: '/industries/startups'
+      path: '/industries/startups'
+      fullPath: '/industries/startups'
+      preLoaderRoute: typeof IndustriesStartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/healthcare': {
+      id: '/industries/healthcare'
+      path: '/industries/healthcare'
+      fullPath: '/industries/healthcare'
+      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/ecommerce': {
+      id: '/industries/ecommerce'
+      path: '/industries/ecommerce'
+      fullPath: '/industries/ecommerce'
+      preLoaderRoute: typeof IndustriesEcommerceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/bfsi': {
+      id: '/industries/bfsi'
+      path: '/industries/bfsi'
+      fullPath: '/industries/bfsi'
+      preLoaderRoute: typeof IndustriesBfsiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -220,6 +320,11 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  IndustriesBfsiRoute: IndustriesBfsiRoute,
+  IndustriesEcommerceRoute: IndustriesEcommerceRoute,
+  IndustriesHealthcareRoute: IndustriesHealthcareRoute,
+  IndustriesStartupsRoute: IndustriesStartupsRoute,
+  IndustriesTelecomRoute: IndustriesTelecomRoute,
   ServicesBackOfficeRoute: ServicesBackOfficeRoute,
   ServicesDigitalProcessRoute: ServicesDigitalProcessRoute,
   ServicesInboundCustomerSupportRoute: ServicesInboundCustomerSupportRoute,
