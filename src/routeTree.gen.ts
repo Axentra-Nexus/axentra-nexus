@@ -9,38 +9,226 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as ServicesOutboundSalesRouteImport } from './routes/services.outbound-sales'
+import { Route as ServicesInboundCustomerSupportRouteImport } from './routes/services.inbound-customer-support'
+import { Route as ServicesDigitalProcessRouteImport } from './routes/services.digital-process'
+import { Route as ServicesBackOfficeRouteImport } from './routes/services.back-office'
+import { Route as IndustriesTelecomRouteImport } from './routes/industries.telecom'
+import { Route as IndustriesStartupsRouteImport } from './routes/industries.startups'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
+import { Route as IndustriesEcommerceRouteImport } from './routes/industries.ecommerce'
+import { Route as IndustriesBfsiRouteImport } from './routes/industries.bfsi'
 
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesOutboundSalesRoute = ServicesOutboundSalesRouteImport.update({
+  id: '/services/outbound-sales',
+  path: '/services/outbound-sales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesInboundCustomerSupportRoute =
+  ServicesInboundCustomerSupportRouteImport.update({
+    id: '/services/inbound-customer-support',
+    path: '/services/inbound-customer-support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesDigitalProcessRoute = ServicesDigitalProcessRouteImport.update({
+  id: '/services/digital-process',
+  path: '/services/digital-process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesBackOfficeRoute = ServicesBackOfficeRouteImport.update({
+  id: '/services/back-office',
+  path: '/services/back-office',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesTelecomRoute = IndustriesTelecomRouteImport.update({
+  id: '/industries/telecom',
+  path: '/industries/telecom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesStartupsRoute = IndustriesStartupsRouteImport.update({
+  id: '/industries/startups',
+  path: '/industries/startups',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesEcommerceRoute = IndustriesEcommerceRouteImport.update({
+  id: '/industries/ecommerce',
+  path: '/industries/ecommerce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesBfsiRoute = IndustriesBfsiRouteImport.update({
+  id: '/industries/bfsi',
+  path: '/industries/bfsi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/industries/bfsi': typeof IndustriesBfsiRoute
+  '/industries/ecommerce': typeof IndustriesEcommerceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/startups': typeof IndustriesStartupsRoute
+  '/industries/telecom': typeof IndustriesTelecomRoute
+  '/services/back-office': typeof ServicesBackOfficeRoute
+  '/services/digital-process': typeof ServicesDigitalProcessRoute
+  '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/outbound-sales': typeof ServicesOutboundSalesRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/industries/bfsi': typeof IndustriesBfsiRoute
+  '/industries/ecommerce': typeof IndustriesEcommerceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/startups': typeof IndustriesStartupsRoute
+  '/industries/telecom': typeof IndustriesTelecomRoute
+  '/services/back-office': typeof ServicesBackOfficeRoute
+  '/services/digital-process': typeof ServicesDigitalProcessRoute
+  '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/outbound-sales': typeof ServicesOutboundSalesRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/industries/bfsi': typeof IndustriesBfsiRoute
+  '/industries/ecommerce': typeof IndustriesEcommerceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/startups': typeof IndustriesStartupsRoute
+  '/industries/telecom': typeof IndustriesTelecomRoute
+  '/services/back-office': typeof ServicesBackOfficeRoute
+  '/services/digital-process': typeof ServicesDigitalProcessRoute
+  '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/outbound-sales': typeof ServicesOutboundSalesRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/industries/bfsi'
+    | '/industries/ecommerce'
+    | '/industries/healthcare'
+    | '/industries/startups'
+    | '/industries/telecom'
+    | '/services/back-office'
+    | '/services/digital-process'
+    | '/services/inbound-customer-support'
+    | '/services/outbound-sales'
+    | '/industries/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/industries/bfsi'
+    | '/industries/ecommerce'
+    | '/industries/healthcare'
+    | '/industries/startups'
+    | '/industries/telecom'
+    | '/services/back-office'
+    | '/services/digital-process'
+    | '/services/inbound-customer-support'
+    | '/services/outbound-sales'
+    | '/industries'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/industries/bfsi'
+    | '/industries/ecommerce'
+    | '/industries/healthcare'
+    | '/industries/startups'
+    | '/industries/telecom'
+    | '/services/back-office'
+    | '/services/digital-process'
+    | '/services/inbound-customer-support'
+    | '/services/outbound-sales'
+    | '/industries/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  IndustriesBfsiRoute: typeof IndustriesBfsiRoute
+  IndustriesEcommerceRoute: typeof IndustriesEcommerceRoute
+  IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
+  IndustriesStartupsRoute: typeof IndustriesStartupsRoute
+  IndustriesTelecomRoute: typeof IndustriesTelecomRoute
+  ServicesBackOfficeRoute: typeof ServicesBackOfficeRoute
+  ServicesDigitalProcessRoute: typeof ServicesDigitalProcessRoute
+  ServicesInboundCustomerSupportRoute: typeof ServicesInboundCustomerSupportRoute
+  ServicesOutboundSalesRoute: typeof ServicesOutboundSalesRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +236,101 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/outbound-sales': {
+      id: '/services/outbound-sales'
+      path: '/services/outbound-sales'
+      fullPath: '/services/outbound-sales'
+      preLoaderRoute: typeof ServicesOutboundSalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/inbound-customer-support': {
+      id: '/services/inbound-customer-support'
+      path: '/services/inbound-customer-support'
+      fullPath: '/services/inbound-customer-support'
+      preLoaderRoute: typeof ServicesInboundCustomerSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/digital-process': {
+      id: '/services/digital-process'
+      path: '/services/digital-process'
+      fullPath: '/services/digital-process'
+      preLoaderRoute: typeof ServicesDigitalProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/back-office': {
+      id: '/services/back-office'
+      path: '/services/back-office'
+      fullPath: '/services/back-office'
+      preLoaderRoute: typeof ServicesBackOfficeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/telecom': {
+      id: '/industries/telecom'
+      path: '/industries/telecom'
+      fullPath: '/industries/telecom'
+      preLoaderRoute: typeof IndustriesTelecomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/startups': {
+      id: '/industries/startups'
+      path: '/industries/startups'
+      fullPath: '/industries/startups'
+      preLoaderRoute: typeof IndustriesStartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/healthcare': {
+      id: '/industries/healthcare'
+      path: '/industries/healthcare'
+      fullPath: '/industries/healthcare'
+      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/ecommerce': {
+      id: '/industries/ecommerce'
+      path: '/industries/ecommerce'
+      fullPath: '/industries/ecommerce'
+      preLoaderRoute: typeof IndustriesEcommerceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/bfsi': {
+      id: '/industries/bfsi'
+      path: '/industries/bfsi'
+      fullPath: '/industries/bfsi'
+      preLoaderRoute: typeof IndustriesBfsiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  IndustriesBfsiRoute: IndustriesBfsiRoute,
+  IndustriesEcommerceRoute: IndustriesEcommerceRoute,
+  IndustriesHealthcareRoute: IndustriesHealthcareRoute,
+  IndustriesStartupsRoute: IndustriesStartupsRoute,
+  IndustriesTelecomRoute: IndustriesTelecomRoute,
+  ServicesBackOfficeRoute: ServicesBackOfficeRoute,
+  ServicesDigitalProcessRoute: ServicesDigitalProcessRoute,
+  ServicesInboundCustomerSupportRoute: ServicesInboundCustomerSupportRoute,
+  ServicesOutboundSalesRoute: ServicesOutboundSalesRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
