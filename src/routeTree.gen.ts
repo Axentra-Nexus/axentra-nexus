@@ -15,6 +15,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as ServicesOutboundSalesRouteImport } from './routes/services.outbound-sales'
+import { Route as ServicesLendingRouteImport } from './routes/services.lending'
 import { Route as ServicesInboundCustomerSupportRouteImport } from './routes/services.inbound-customer-support'
 import { Route as ServicesDigitalProcessRouteImport } from './routes/services.digital-process'
 import { Route as ServicesBackOfficeRouteImport } from './routes/services.back-office'
@@ -52,6 +53,11 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
 const ServicesOutboundSalesRoute = ServicesOutboundSalesRouteImport.update({
   id: '/services/outbound-sales',
   path: '/services/outbound-sales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesLendingRoute = ServicesLendingRouteImport.update({
+  id: '/services/lending',
+  path: '/services/lending',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesInboundCustomerSupportRoute =
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/services/back-office': typeof ServicesBackOfficeRoute
   '/services/digital-process': typeof ServicesDigitalProcessRoute
   '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/lending': typeof ServicesLendingRoute
   '/services/outbound-sales': typeof ServicesOutboundSalesRoute
   '/industries/': typeof IndustriesIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/services/back-office': typeof ServicesBackOfficeRoute
   '/services/digital-process': typeof ServicesDigitalProcessRoute
   '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/lending': typeof ServicesLendingRoute
   '/services/outbound-sales': typeof ServicesOutboundSalesRoute
   '/industries': typeof IndustriesIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/services/back-office': typeof ServicesBackOfficeRoute
   '/services/digital-process': typeof ServicesDigitalProcessRoute
   '/services/inbound-customer-support': typeof ServicesInboundCustomerSupportRoute
+  '/services/lending': typeof ServicesLendingRoute
   '/services/outbound-sales': typeof ServicesOutboundSalesRoute
   '/industries/': typeof IndustriesIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/services/back-office'
     | '/services/digital-process'
     | '/services/inbound-customer-support'
+    | '/services/lending'
     | '/services/outbound-sales'
     | '/industries/'
     | '/services/'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/services/back-office'
     | '/services/digital-process'
     | '/services/inbound-customer-support'
+    | '/services/lending'
     | '/services/outbound-sales'
     | '/industries'
     | '/services'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/services/back-office'
     | '/services/digital-process'
     | '/services/inbound-customer-support'
+    | '/services/lending'
     | '/services/outbound-sales'
     | '/industries/'
     | '/services/'
@@ -208,6 +220,7 @@ export interface RootRouteChildren {
   ServicesBackOfficeRoute: typeof ServicesBackOfficeRoute
   ServicesDigitalProcessRoute: typeof ServicesDigitalProcessRoute
   ServicesInboundCustomerSupportRoute: typeof ServicesInboundCustomerSupportRoute
+  ServicesLendingRoute: typeof ServicesLendingRoute
   ServicesOutboundSalesRoute: typeof ServicesOutboundSalesRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -255,6 +268,13 @@ declare module '@tanstack/react-router' {
       path: '/services/outbound-sales'
       fullPath: '/services/outbound-sales'
       preLoaderRoute: typeof ServicesOutboundSalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/lending': {
+      id: '/services/lending'
+      path: '/services/lending'
+      fullPath: '/services/lending'
+      preLoaderRoute: typeof ServicesLendingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/inbound-customer-support': {
@@ -328,6 +348,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesBackOfficeRoute: ServicesBackOfficeRoute,
   ServicesDigitalProcessRoute: ServicesDigitalProcessRoute,
   ServicesInboundCustomerSupportRoute: ServicesInboundCustomerSupportRoute,
+  ServicesLendingRoute: ServicesLendingRoute,
   ServicesOutboundSalesRoute: ServicesOutboundSalesRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
