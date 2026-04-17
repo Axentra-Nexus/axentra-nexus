@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import axentraLogo from "@/assets/axentra-logo.png";
 
@@ -12,19 +12,33 @@ const navLinks = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-md">
-      <div className="container-max flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={axentraLogo} alt="Axentra logo" width={40} height={40} />
-          <span className="text-xl font-bold tracking-tight text-foreground">
-            Axentra
-          </span>
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-border bg-background/90 shadow-sm backdrop-blur-md"
+          : "border-b border-transparent bg-background/70 backdrop-blur-sm"
+      }`}
+    >
+      <div className="container-max flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+          <img src={axentraLogo} alt="Axentra Nexus logo" width={48} height={48} className="h-12 w-12 object-contain" />
+          <div className="flex flex-col leading-tight">
+            <span className="text-lg font-extrabold tracking-tight text-brand-blue">Axentra</span>
+            <span className="-mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Nexus</span>
+          </div>
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -32,8 +46,8 @@ export function Header() {
               to={link.to}
               className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                 location.pathname === link.to
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-primary"
+                  : "text-foreground/70 hover:text-foreground"
               }`}
             >
               {link.label}
@@ -41,16 +55,15 @@ export function Header() {
           ))}
           <Link
             to="/contact"
-            className="ml-3 inline-flex h-9 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="ml-3 inline-flex h-10 items-center rounded-full gradient-brand px-6 text-sm font-semibold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]"
           >
-            Get Started
+            Partner With Us
           </Link>
         </nav>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground md:hidden"
           aria-label="Toggle menu"
         >
           {mobileOpen ? (
@@ -61,23 +74,27 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-card px-4 pb-4 md:hidden">
+        <div className="border-t border-border bg-background px-4 pb-6 pt-2 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onClick={() => setMobileOpen(false)}
               className={`block rounded-md px-4 py-3 text-sm font-medium ${
-                location.pathname === link.to
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground"
+                location.pathname === link.to ? "text-primary" : "text-foreground/80"
               }`}
             >
               {link.label}
             </Link>
           ))}
+          <Link
+            to="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="mt-3 inline-flex h-11 w-full items-center justify-center rounded-full gradient-brand px-6 text-sm font-semibold text-primary-foreground"
+          >
+            Partner With Us
+          </Link>
         </div>
       )}
     </header>

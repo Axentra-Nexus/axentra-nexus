@@ -3,54 +3,54 @@ import axentraLogo from "@/assets/axentra-logo.png";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-foreground text-background">
+    <footer className="border-t border-border bg-[oklch(0.18_0.02_260)] text-background">
       <div className="container-max section-padding">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <img src={axentraLogo} alt="Axentra logo" width={36} height={36} className="brightness-0 invert" loading="lazy" />
-              <span className="text-lg font-bold">Axentra</span>
+              <img src={axentraLogo} alt="Axentra Nexus logo" width={48} height={48} className="h-12 w-12 object-contain" loading="lazy" />
+              <div className="flex flex-col leading-tight">
+                <span className="text-lg font-extrabold text-background">Axentra</span>
+                <span className="-mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Nexus</span>
+              </div>
             </div>
-            <p className="mt-4 text-sm leading-relaxed opacity-70">
-              Driving operational excellence through intelligent business process outsourcing and digital transformation.
-            </p>
-            <p className="mt-3 text-xs opacity-50">
-              Axentra is a brand by Dharitri Nexus
+            <p className="mt-5 text-sm leading-relaxed opacity-70">
+              Premium BPO, lending and business solutions partner. Scaling enterprises with precision, speed, and intelligence.
             </p>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider opacity-50">Services</h4>
-            <ul className="space-y-2 text-sm opacity-70">
-              <li><Link to="/services/inbound-customer-support" className="hover:opacity-100 transition-opacity">Inbound Customer Support</Link></li>
-              <li><Link to="/services/outbound-sales" className="hover:opacity-100 transition-opacity">Outbound Sales & Collections</Link></li>
-              <li><Link to="/services/back-office" className="hover:opacity-100 transition-opacity">Back Office Operations</Link></li>
-              <li><Link to="/services/digital-process" className="hover:opacity-100 transition-opacity">Digital Process Management</Link></li>
+            <ul className="space-y-2.5 text-sm opacity-70">
+              <li><Link to="/services/inbound-customer-support" className="hover:text-primary transition-colors">Business Process Outsourcing</Link></li>
+              <li><Link to="/services/lending" className="hover:text-primary transition-colors">Lending & Financial Services</Link></li>
+              <li><Link to="/services/digital-process" className="hover:text-primary transition-colors">Customer Experience</Link></li>
+              <li><Link to="/services/outbound-sales" className="hover:text-primary transition-colors">Sales & Collections</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider opacity-50">Industries</h4>
-            <ul className="space-y-2 text-sm opacity-70">
-              <li><Link to="/industries/bfsi" className="hover:opacity-100 transition-opacity">BFSI</Link></li>
-              <li><Link to="/industries/ecommerce" className="hover:opacity-100 transition-opacity">E-commerce</Link></li>
-              <li><Link to="/industries/telecom" className="hover:opacity-100 transition-opacity">Telecom</Link></li>
-              <li><Link to="/industries/healthcare" className="hover:opacity-100 transition-opacity">Healthcare</Link></li>
-              <li><Link to="/industries/startups" className="hover:opacity-100 transition-opacity">Startups</Link></li>
+            <ul className="space-y-2.5 text-sm opacity-70">
+              <li><Link to="/industries/bfsi" className="hover:text-primary transition-colors">BFSI</Link></li>
+              <li><Link to="/industries/ecommerce" className="hover:text-primary transition-colors">E-commerce</Link></li>
+              <li><Link to="/industries/telecom" className="hover:text-primary transition-colors">Telecom</Link></li>
+              <li><Link to="/industries/healthcare" className="hover:text-primary transition-colors">Fintech & Healthcare</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider opacity-50">Contact</h4>
-            <ul className="space-y-2 text-sm opacity-70">
-              <li>axentra.cx@gmail.com</li>
-              <li><Link to="/contact" className="hover:opacity-100 transition-opacity">Contact Form</Link></li>
+            <ul className="space-y-2.5 text-sm opacity-70">
+              <li><a href="mailto:business@axentra.co.in" className="hover:text-primary transition-colors">business@axentra.co.in</a></li>
+              <li><a href="tel:+918095122775" className="hover:text-primary transition-colors">+91-8095122775</a></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact Form</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-background/10 pt-8 text-center text-xs opacity-50">
-          © {new Date().getFullYear()} Axentra. All rights reserved. A brand by Dharitri Nexus.
+        <div className="mt-14 border-t border-background/10 pt-8 text-center text-xs opacity-50">
+          © {new Date().getFullYear()} Axentra Nexus. All rights reserved.
         </div>
       </div>
     </footer>
