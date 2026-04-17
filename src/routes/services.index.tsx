@@ -1,59 +1,115 @@
-import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
-import { SectionHeading } from "@/components/SectionHeading";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Headphones, Banknote, Sparkles, TrendingUp, ArrowRight } from "lucide-react";
+import bpoCallCenter from "@/assets/bpo-call-center.jpg";
+import lendingFinance from "@/assets/lending-finance.jpg";
+import cxAgent from "@/assets/cx-agent.jpg";
+import salesGrowth from "@/assets/sales-growth.jpg";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Services — Axentra BPO & Business Solutions" },
-      { name: "description", content: "Explore Axentra's comprehensive BPO services including customer support, sales, back office operations, and digital process management." },
-      { property: "og:title", content: "Services — Axentra" },
-      { property: "og:description", content: "End-to-end business process outsourcing solutions." },
+      { title: "Services — Axentra Nexus BPO, Lending & Business Solutions" },
+      { name: "description", content: "BPO, Lending & Financial Services Support, Customer Experience Management, and Sales & Collections — delivered with precision and scale." },
+      { property: "og:title", content: "Services — Axentra Nexus" },
+      { property: "og:description", content: "End-to-end BPO, lending, CX and sales solutions for the modern enterprise." },
+      { property: "og:image", content: bpoCallCenter },
     ],
   }),
   component: ServicesPage,
 });
 
 const services = [
-  { title: "Inbound Customer Support", desc: "Deliver exceptional customer experiences with 24/7 multilingual support across voice, chat, email, and social channels.", to: "/services/inbound-customer-support", icon: "📞" },
-  { title: "Outbound Sales & Collections", desc: "Drive revenue growth with compliant, data-driven outbound campaigns including telemarketing, lead generation, and collections.", to: "/services/outbound-sales", icon: "📈" },
-  { title: "Back Office Operations", desc: "Streamline your back-office with scalable document processing, data management, reconciliation, and compliance services.", to: "/services/back-office", icon: "⚙️" },
-  { title: "Digital Process Management", desc: "Transform operations with intelligent workflow automation, RPA, AI-powered analytics, and end-to-end digital solutions.", to: "/services/digital-process", icon: "🔄" },
-];
+  {
+    title: "Business Process Outsourcing",
+    desc: "Streamline operations across customer support, back office, document processing and compliance with our enterprise-grade BPO programs.",
+    bullets: ["24×7 multilingual operations", "Voice, chat, email & social channels", "Document processing & data entry", "Quality and compliance frameworks"],
+    icon: Headphones,
+    image: bpoCallCenter,
+    to: "/services/inbound-customer-support",
+  },
+  {
+    title: "Lending & Financial Services Support",
+    desc: "Purpose-built operations for banks, NBFCs and fintechs — from origination and underwriting support to KYC, servicing and collections.",
+    bullets: ["Loan origination & underwriting support", "KYC, AML & verification", "Customer servicing & disbursal ops", "Early-stage and late-stage collections"],
+    icon: Banknote,
+    image: lendingFinance,
+    to: "/services/lending",
+  },
+  {
+    title: "Customer Experience Management",
+    desc: "Omnichannel CX programs designed around your customer journey — measured by NPS, CSAT and lifetime value, not just call volumes.",
+    bullets: ["Journey mapping & CX design", "Omnichannel contact center", "Voice of customer analytics", "AI-assisted agent workflows"],
+    icon: Sparkles,
+    image: cxAgent,
+    to: "/services/digital-process",
+  },
+  {
+    title: "Sales & Collections",
+    desc: "Revenue and recovery operations powered by data, compliant outreach and high-performing teams trained for your products.",
+    bullets: ["Inside sales & lead qualification", "Cross-sell & upsell programs", "Compliant collections operations", "Performance dashboards & reporting"],
+    icon: TrendingUp,
+    image: salesGrowth,
+    to: "/services/outbound-sales",
+  },
+] as const;
 
 function ServicesPage() {
   return (
     <>
-      <section className="section-padding bg-foreground text-background">
-        <div className="container-max">
-          <span className="mb-4 inline-block rounded-full border border-background/20 px-4 py-1.5 text-xs font-medium uppercase tracking-wider opacity-70">Our Services</span>
-          <h1 className="heading-1 text-background">Comprehensive Business Solutions</h1>
-          <p className="body-text mt-6 max-w-3xl text-background/80">
-            From front-office customer engagement to back-office process automation, Axentra delivers end-to-end solutions that drive efficiency, reduce costs, and enhance experiences.
+      <section className="relative overflow-hidden bg-[oklch(0.16_0.02_260)] text-background">
+        <div className="absolute inset-0 gradient-brand opacity-20" />
+        <div className="container-max relative px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+          <span className="mb-4 inline-block rounded-full border border-background/20 bg-background/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wider backdrop-blur">
+            Our Services
+          </span>
+          <h1 className="heading-1 text-background">
+            Comprehensive <span className="text-gradient-brand">Business Solutions</span>
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-background/80">
+            Four integrated practices designed to scale your operations with precision, speed and intelligence.
           </p>
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="grid gap-8 sm:grid-cols-2">
-            {services.map((s) => (
-              <Link key={s.title} to={s.to} className="card-hover group">
-                <div className="mb-4 text-4xl">{s.icon}</div>
-                <h3 className="heading-3 group-hover:text-primary transition-colors">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                <span className="mt-4 inline-flex items-center text-sm font-medium text-primary">Learn more →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {services.map((s, idx) => {
+        const Icon = s.icon;
+        const reverse = idx % 2 === 1;
+        return (
+          <section key={s.title} className={`section-padding ${idx % 2 === 0 ? "bg-background" : "gradient-brand-soft"}`}>
+            <div className="container-max grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+              <div className={reverse ? "lg:order-2" : ""}>
+                <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl gradient-brand text-primary-foreground shadow-md">
+                  <Icon className="h-7 w-7" />
+                </div>
+                <h2 className="heading-2">{s.title}</h2>
+                <p className="body-text mt-4">{s.desc}</p>
+                <ul className="mt-6 space-y-3">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-3">
+                      <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary">✓</span>
+                      <span className="text-base text-foreground">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link to={s.to} className="mt-8 inline-flex items-center gap-2 rounded-full gradient-brand px-7 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]">
+                  Explore in detail <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              <div className={`relative ${reverse ? "lg:order-1" : ""}`}>
+                <div className="absolute -inset-4 rounded-3xl gradient-brand opacity-10 blur-2xl" />
+                <img src={s.image} alt={s.title} width={1280} height={896} loading="lazy" className="relative w-full rounded-3xl object-cover shadow-xl" />
+              </div>
+            </div>
+          </section>
+        );
+      })}
 
-      <section className="bg-primary text-primary-foreground">
-        <div className="container-max px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
-          <h2 className="text-3xl font-bold sm:text-4xl">Need a Customized Solution?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg opacity-90">Our experts will design a tailored engagement model for your business.</p>
-          <Link to="/contact" className="mt-8 inline-flex h-12 items-center rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90">
-            Talk to an Expert
+      <section className="relative overflow-hidden gradient-brand text-primary-foreground">
+        <div className="container-max px-4 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
+          <h2 className="text-3xl font-extrabold sm:text-4xl">Need a Customized Solution?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg opacity-90">Our experts will design a tailored engagement model for your business.</p>
+          <Link to="/contact" className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-background px-8 text-sm font-semibold text-foreground shadow-lg transition-transform hover:scale-[1.03]">
+            Talk to an Expert <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
