@@ -30,7 +30,7 @@ export function Header() {
           : "border-b border-transparent bg-background/70 backdrop-blur-sm"
       }`}
     >
-      <div className="container-max flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container-max flex h-24 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
           <img src={axentraLogo} alt="Axentra Nexus logo" width={64} height={64} className="h-16 w-16 object-contain" />
           <div className="flex flex-col leading-tight">
