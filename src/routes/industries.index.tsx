@@ -130,10 +130,10 @@ function IndustriesPage() {
       <section className="border-b border-border bg-secondary">
         <div className="container-max grid grid-cols-2 gap-6 px-4 py-10 sm:px-6 md:grid-cols-4 lg:px-8">
           {[
-            { v: "5+", l: "Industries served" },
-            { v: "200+", l: "Enterprise clients" },
-            { v: "99.2%", l: "SLA adherence" },
-            { v: "24/7", l: "Global coverage" },
+            { v: "5+", l: "Industries we serve" },
+            { v: "Founder-Led", l: "Engagement model" },
+            { v: "White-Glove", l: "Onboarding promise" },
+            { v: "24/7", l: "Always-on coverage" },
           ].map((s) => (
             <div key={s.l} className="text-center md:text-left">
               <div className="text-3xl font-extrabold text-gradient-brand sm:text-4xl">{s.v}</div>

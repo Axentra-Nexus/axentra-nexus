@@ -57,7 +57,7 @@ function AboutPage() {
               Axentra Nexus was founded with a clear conviction: enterprises deserve an outsourcing partner that thinks like an owner. We bring together leaders from BFSI, fintech, e-commerce and customer experience to architect operating models that don't just cut cost — they create competitive advantage.
             </p>
             <p className="body-text mt-4">
-              Today, we serve high-growth brands and regulated enterprises with the same playbook: premium talent, deep domain training, intelligent technology and an obsession with measurable outcomes.
+              We're built for high-growth brands and regulated enterprises with one playbook: premium talent, deep domain training, intelligent technology and an obsession with measurable outcomes — and we're ready to make your business our flagship engagement.
             </p>
           </div>
         </div>
@@ -116,7 +116,7 @@ function AboutPage() {
                 </span>
                 <h3 className="heading-2 mt-2">A <span className="text-gradient-brand">people-first</span> operating model</h3>
                 <p className="body-text mt-4">
-                  Our delivery quality starts with our people. We hire for ownership, train for depth and reward outcomes — building teams that clients trust to run mission-critical operations.
+                  Our delivery quality starts with our people. We hire for ownership, train for depth and reward outcomes — building teams ready to run mission-critical operations from day one.
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <Heart className="h-5 w-5 text-primary" />
