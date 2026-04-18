@@ -62,9 +62,9 @@ const industries = [
 ] as const;
 
 const trust = [
-  { icon: ShieldCheck, value: "99.2%", label: "SLA Adherence" },
-  { icon: Users, value: "5,000+", label: "Skilled Workforce" },
-  { icon: Layers, value: "24×7", label: "Scalable Operations" },
+  { icon: ShieldCheck, value: "Day 1", label: "Founder-Led Delivery" },
+  { icon: Users, value: "Hand-Picked", label: "Premium Talent Pool" },
+  { icon: Layers, value: "24×7", label: "Always-On Operations" },
   { icon: Cpu, value: "AI-First", label: "Tech-Driven Processes" },
 ] as const;
 
@@ -126,7 +126,7 @@ function HomePage() {
               Axentra Nexus partners with banks, fintechs, e-commerce leaders and high-growth enterprises to design, run and optimize the operations that power their business. We blend domain expertise, premium talent and intelligent automation to deliver outcomes that move the needle.
             </p>
             <p className="body-text mt-4">
-              From customer experience to lending operations and back-office excellence — we are the operating partner trusted by leadership teams to scale with confidence.
+              From customer experience to lending operations and back-office excellence — we partner with ambitious leadership teams ready to scale with confidence.
             </p>
             <Link to="/about" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all">
               Learn more about us <ArrowRight className="h-4 w-4" />
@@ -261,8 +261,8 @@ function HomePage() {
               <div className="flex items-center gap-3">
                 <Globe2 className="h-8 w-8 text-primary" />
                 <div>
-                  <div className="text-2xl font-extrabold text-brand-blue">15+</div>
-                  <div className="text-xs text-muted-foreground">Countries Served</div>
+                  <div className="text-2xl font-extrabold text-brand-blue">Global</div>
+                  <div className="text-xs text-muted-foreground">Delivery-Ready</div>
                 </div>
               </div>
             </div>

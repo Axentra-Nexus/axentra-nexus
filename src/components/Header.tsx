@@ -32,10 +32,10 @@ export function Header() {
     >
       <div className="container-max flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <img src={axentraLogo} alt="Axentra Nexus logo" width={48} height={48} className="h-12 w-12 object-contain" />
+          <img src={axentraLogo} alt="Axentra Nexus logo" width={64} height={64} className="h-16 w-16 object-contain" />
           <div className="flex flex-col leading-tight">
-            <span className="text-lg font-extrabold tracking-tight text-brand-blue">Axentra</span>
-            <span className="-mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Nexus</span>
+            <span className="text-2xl font-extrabold tracking-tight text-brand-blue">Axentra</span>
+            <span className="-mt-0.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">Nexus</span>
           </div>
         </Link>
 
