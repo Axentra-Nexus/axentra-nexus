@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import axentraLogo from "@/assets/axentra-logo.png";
+import axentraLogo from "@/assets/axentra-mark.png";
 
 export function Footer() {
   return (

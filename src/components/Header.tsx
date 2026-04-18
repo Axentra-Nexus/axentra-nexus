@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import axentraLogo from "@/assets/axentra-logo.png";
+import axentraLogo from "@/assets/axentra-mark.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
