@@ -75,67 +75,75 @@ const directors: Member[] = [
   },
 ];
 
-function MemberCard({ member, featured = false }: { member: Member; featured?: boolean }) {
+function MemberCard({ member }: { member: Member; featured?: boolean }) {
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-2xl">
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
-        <div className="absolute inset-0 gradient-brand opacity-0 transition-opacity duration-500 group-hover:opacity-20" />
-        <img
-          src={member.image}
-          alt={`${member.name}, ${member.role} at Axentra Nexus`}
-          width={768}
-          height={960}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[oklch(0.16_0.02_260)/0.85] via-[oklch(0.16_0.02_260)/0.35] to-transparent" />
-        <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary backdrop-blur">
-          <Sparkles className="h-3 w-3" /> {member.years}
+    <article className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-2xl sm:p-7">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+        {/* Photo */}
+        <div className="relative shrink-0">
+          <div className="relative h-28 w-28 overflow-hidden rounded-full ring-2 ring-primary/20 ring-offset-2 ring-offset-card sm:h-32 sm:w-32">
+            <img
+              src={member.image}
+              alt={`${member.name}, ${member.role} at Axentra Nexus`}
+              width={256}
+              height={256}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+          <div className="absolute -bottom-1 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-md">
+            <Sparkles className="h-2.5 w-2.5" /> {member.years}
+          </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 p-6 text-background">
-          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-background/80">{member.role}</div>
-          <h3 className="mt-1 text-2xl font-bold leading-tight">{member.name}</h3>
-          <p className="mt-1 text-sm text-background/85">{member.short}</p>
-        </div>
-      </div>
 
-      <div className="space-y-5 p-6 sm:p-7">
-        {member.education && (
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
-            <GraduationCap className="h-3.5 w-3.5" /> {member.education}
+        {/* Info */}
+        <div className="min-w-0 flex-1 space-y-4">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{member.role}</div>
+            <h3 className="mt-1 text-2xl font-bold leading-tight text-foreground">{member.name}</h3>
+            <p className="mt-1 text-sm font-medium text-muted-foreground">{member.short}</p>
           </div>
-        )}
-        <p className={`text-sm leading-relaxed text-muted-foreground ${featured ? "" : ""}`}>{member.bio}</p>
-        <div>
-          <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-foreground">
-            <Briefcase className="h-3.5 w-3.5 text-primary" /> Expertise
+
+          {member.education && (
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+              <GraduationCap className="h-3.5 w-3.5" /> {member.education}
+            </div>
+          )}
+
+          <p className="text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
+
+          <div>
+            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-foreground">
+              <Briefcase className="h-3.5 w-3.5 text-primary" /> Expertise
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {member.expertise.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-foreground/80"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {member.expertise.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-foreground/80"
-              >
-                {tag}
-              </span>
-            ))}
+
+          <div className="flex items-center gap-3 pt-1">
+            <a
+              href="mailto:business@axentra.co.in"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+              aria-label={`Email ${member.name}`}
+            >
+              <Mail className="h-4 w-4" />
+            </a>
+            <a
+              href="#"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+              aria-label={`${member.name} on LinkedIn`}
+            >
+              <Globe className="h-4 w-4" />
+            </a>
           </div>
-        </div>
-        <div className="flex items-center gap-3 pt-2">
-          <a
-            href="mailto:business@axentra.co.in"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
-            aria-label={`Email ${member.name}`}
-          >
-            <Mail className="h-4 w-4" />
-          </a>
-          <a
-            href="#"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
-            aria-label={`${member.name} on LinkedIn`}
-          >
-            <Globe className="h-4 w-4" />
-          </a>
         </div>
       </div>
     </article>
