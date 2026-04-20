@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Linkedin as LinkedinIcon, Mail, ArrowRight, Briefcase, GraduationCap, Sparkles } from "lucide-react";
+import { Globe, Mail, ArrowRight, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 import ashwini from "@/assets/team-ashwini.jpg";
 import saivijay from "@/assets/team-saivijay.jpg";
 import nithin from "@/assets/team-nithin.jpg";
@@ -134,7 +134,7 @@ function MemberCard({ member, featured = false }: { member: Member; featured?: b
             className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-primary hover:text-primary"
             aria-label={`${member.name} on LinkedIn`}
           >
-            <Linkedin className="h-4 w-4" />
+            <Globe className="h-4 w-4" />
           </a>
         </div>
       </div>
