@@ -38,7 +38,7 @@ const founders: Member[] = [
     image: ashwini,
     years: "10+ yrs",
     short: "Customer Experience & Business Support",
-    bio: "Ashwini brings over a decade of hands-on leadership in business support and customer experience operations. He has scaled CX programs across E-commerce, Apparel and Marketing — building teams that consistently deliver measurable improvements in CSAT, retention and operational efficiency.",
+    bio: "Ashwini brings over a decade of hands-on leadership in business support and customer experience operations. She has scaled CX programs across E-commerce, Apparel and Marketing — building teams that consistently deliver measurable improvements in CSAT, retention and operational efficiency.",
     expertise: ["E-commerce Operations", "Apparel & Retail", "Marketing Ops", "Customer Experience", "Team Scaling"],
   },
   {
