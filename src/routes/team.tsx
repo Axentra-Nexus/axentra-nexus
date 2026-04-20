@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Linkedin, Mail, ArrowRight, Briefcase, GraduationCap, Sparkles } from "lucide-react";
+import { Linkedin as LinkedinIcon, Mail, ArrowRight, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 import ashwini from "@/assets/team-ashwini.jpg";
 import saivijay from "@/assets/team-saivijay.jpg";
 import nithin from "@/assets/team-nithin.jpg";

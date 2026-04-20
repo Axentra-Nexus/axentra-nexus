@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -25,6 +26,11 @@ import { Route as IndustriesHealthcareRouteImport } from './routes/industries.he
 import { Route as IndustriesEcommerceRouteImport } from './routes/industries.ecommerce'
 import { Route as IndustriesBfsiRouteImport } from './routes/industries.bfsi'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -106,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/team': typeof TeamRoute
   '/industries/bfsi': typeof IndustriesBfsiRoute
   '/industries/ecommerce': typeof IndustriesEcommerceRoute
   '/industries/healthcare': typeof IndustriesHealthcareRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/team': typeof TeamRoute
   '/industries/bfsi': typeof IndustriesBfsiRoute
   '/industries/ecommerce': typeof IndustriesEcommerceRoute
   '/industries/healthcare': typeof IndustriesHealthcareRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/team': typeof TeamRoute
   '/industries/bfsi': typeof IndustriesBfsiRoute
   '/industries/ecommerce': typeof IndustriesEcommerceRoute
   '/industries/healthcare': typeof IndustriesHealthcareRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/team'
     | '/industries/bfsi'
     | '/industries/ecommerce'
     | '/industries/healthcare'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/team'
     | '/industries/bfsi'
     | '/industries/ecommerce'
     | '/industries/healthcare'
@@ -194,6 +205,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/team'
     | '/industries/bfsi'
     | '/industries/ecommerce'
     | '/industries/healthcare'
@@ -212,6 +224,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  TeamRoute: typeof TeamRoute
   IndustriesBfsiRoute: typeof IndustriesBfsiRoute
   IndustriesEcommerceRoute: typeof IndustriesEcommerceRoute
   IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
@@ -228,6 +241,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -340,6 +360,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  TeamRoute: TeamRoute,
   IndustriesBfsiRoute: IndustriesBfsiRoute,
   IndustriesEcommerceRoute: IndustriesEcommerceRoute,
   IndustriesHealthcareRoute: IndustriesHealthcareRoute,
