@@ -33,13 +33,14 @@ type Member = {
 
 const founders: Member[] = [
   {
-    name: "Ashwini Holla",
+    name: "Nithin Rao",
     role: "Co-Founder",
-    image: ashwini,
-    years: "10+ yrs",
-    short: "Customer Experience & Business Support",
-    bio: "Ashwini brings over a decade of hands-on leadership in business support and customer experience operations. She has scaled CX programs across E-commerce, Apparel and Marketing — building teams that consistently deliver measurable improvements in CSAT, retention and operational efficiency.",
-    expertise: ["E-commerce Operations", "Apparel & Retail", "Marketing Ops", "Customer Experience", "Team Scaling"],
+    image: nithin,
+    years: "14+ yrs",
+    short: "Banking, Finance, E-commerce & BPO",
+    bio: "An MBA in Systems & Operations Management, Nithin has spent over fourteen years building and leading large-scale operations across Banking, Financial Services, E-commerce and BPO. He has architected onshore and offshore delivery models, run multi-hundred-seat contact centers, and led digital transformation programs that combine process rigor with measurable cost-to-serve impact. His operating playbook — built on Six Sigma discipline, workforce analytics and customer-obsessed design — anchors how Axentra Nexus designs every engagement, from pilot to enterprise scale.",
+    expertise: ["Banking & Financial Services", "BPO Operations", "E-commerce Support", "Six Sigma & Process Design", "Workforce Management", "Digital Transformation"],
+    education: "MBA — Systems & Operations Management",
   },
   {
     name: "C Sai Vijay Rahul",
@@ -54,14 +55,13 @@ const founders: Member[] = [
 
 const directors: Member[] = [
   {
-    name: "Nithin Rao",
+    name: "Ashwini Holla",
     role: "Director",
-    image: nithin,
-    years: "14+ yrs",
-    short: "Banking, Finance, E-commerce & BPO",
-    bio: "An MBA in Systems & Operations Management, Nithin has spent over fourteen years building and leading large-scale operations across Banking, Financial Services, E-commerce and BPO. He has architected onshore and offshore delivery models, run multi-hundred-seat contact centers, and led digital transformation programs that combine process rigor with measurable cost-to-serve impact. His operating playbook — built on Six Sigma discipline, workforce analytics and customer-obsessed design — anchors how Axentra Nexus designs every engagement, from pilot to enterprise scale.",
-    expertise: ["Banking & Financial Services", "BPO Operations", "E-commerce Support", "Six Sigma & Process Design", "Workforce Management", "Digital Transformation"],
-    education: "MBA — Systems & Operations Management",
+    image: ashwini,
+    years: "10+ yrs",
+    short: "Customer Experience & Business Support",
+    bio: "Ashwini brings over a decade of hands-on leadership in business support and customer experience operations. She has scaled CX programs across E-commerce, Apparel and Marketing — building teams that consistently deliver measurable improvements in CSAT, retention and operational efficiency.",
+    expertise: ["E-commerce Operations", "Apparel & Retail", "Marketing Ops", "Customer Experience", "Team Scaling"],
   },
   {
     name: "Rohith C",
