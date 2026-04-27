@@ -23,10 +23,8 @@ jobs:
         env:
           NODE_OPTIONS: --experimental-vm-modules
 
-      - name: Fix asset paths
-        run: |
-          sed -i 's|href="/assets/|href="/axentra-nexus/assets/|g' ./dist/client/index.html
-          sed -i 's|src="/assets/|src="/axentra-nexus/assets/|g' ./dist/client/index.html
+      - name: Add 404.html for SPA routing
+        run: cp ./dist/client/index.html ./dist/client/404.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
