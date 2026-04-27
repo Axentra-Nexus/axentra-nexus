@@ -9,18 +9,22 @@ function DefaultErrorComponent({
   reset: () => void;
 }) {
   const router = useRouter();
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
           <span className="text-3xl">⚠️</span>
         </div>
+
         <h1 className="text-2xl font-bold tracking-tight text-foreground">
           Something went wrong
         </h1>
+
         <p className="mt-2 text-sm text-muted-foreground">
           An unexpected error occurred. Please try again.
         </p>
+
         <div className="mt-6 flex items-center justify-center gap-3">
           <button
             onClick={() => {
@@ -31,7 +35,9 @@ function DefaultErrorComponent({
           >
             Try again
           </button>
-          
+
+          {/* ✅ FIXED LINK */}
+          <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
@@ -52,5 +58,6 @@ export const getRouter = () => {
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
   });
+
   return router;
 };
