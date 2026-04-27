@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: List dist folder
-        run: ls -la ./dist/client
+        run: cat ./dist/client/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
